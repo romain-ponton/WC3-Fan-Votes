@@ -1,0 +1,21 @@
+{
+  "expo": {
+    "name": "WC3 Fan Votes",
+    "slug": "wc3-fan-votes",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "scheme": "wc3fanvotes",
+    "userInterfaceStyle": "dark",
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#050606"
+      }
+    }
+  }
+}

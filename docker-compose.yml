@@ -1,0 +1,74 @@
+services:
+  mongo:
+    image: mongo:7
+    container_name: wc3-fan-votes-mongo
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    healthcheck:
+      test: ["CMD", "mongosh", "--quiet", "--eval", "db.adminCommand('ping').ok"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  redis:
+    image: redis:7-alpine
+    container_name: wc3-fan-votes-redis
+    restart: unless-stopped
+    ports:
+      - "6380:6379"
+    volumes:
+      - redis-data:/data
+    command: redis-server --appendonly yes
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  mongo-express:
+    image: mongo-express:1.0.2
+    container_name: wc3-fan-votes-mongo-express
+    restart: unless-stopped
+    ports:
+      - "8082:8081"
+    environment:
+      ME_CONFIG_MONGODB_SERVER: mongo
+      ME_CONFIG_BASICAUTH: "false"
+    depends_on:
+      mongo:
+        condition: service_healthy
+
+  redis-commander:
+    image: rediscommander/redis-commander:latest
+    container_name: wc3-fan-votes-redis-commander
+    restart: unless-stopped
+    ports:
+      - "8083:8081"
+    environment:
+      REDIS_HOSTS: local:redis:6379
+    depends_on:
+      redis:
+        condition: service_healthy
+
+  app:
+    build: .
+    container_name: wc3-fan-votes-app
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      PORT: 3000
+      MONGO_URI: mongodb://mongo:27017/wc3_fan_votes
+      REDIS_URL: redis://redis:6379
+    depends_on:
+      mongo:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+
+volumes:
+  mongo-data:
+  redis-data:

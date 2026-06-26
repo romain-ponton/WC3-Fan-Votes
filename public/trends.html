@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tendances Redis - WC3 Fan Votes</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body data-page="trends">
+    <header class="topbar">
+      <a class="brand" href="/"><span class="brand-mark"></span><span>WC3 Fan Votes</span></a>
+      <nav class="nav">
+        <a href="/">Accueil</a>
+        <a href="/votes.html">Votes</a>
+        <a class="active" href="/trends.html">Tendances</a>
+        <a href="/data.html">Donnees</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="page-title">
+        <p class="eyebrow">Redis live</p>
+        <h1>Tableaux de tendance alimentes par les votes.</h1>
+      </section>
+      <section class="trend-grid">
+        <article class="panel">
+          <div class="panel-head"><h2>Equipes populaires</h2><span class="status-pill">team:popularity</span></div>
+          <div id="team-trends" class="ranking"></div>
+        </article>
+        <article class="panel">
+          <div class="panel-head"><h2>Joueurs populaires</h2><span class="status-pill">player:popularity</span></div>
+          <div id="player-trends" class="ranking"></div>
+        </article>
+        <article class="panel">
+          <div class="panel-head"><h2>Matchs actifs</h2><span class="status-pill">match:activity</span></div>
+          <div id="match-trends" class="ranking"></div>
+        </article>
+      </section>
+    </main>
+
+    <script src="/app.js"></script>
+  </body>
+</html>

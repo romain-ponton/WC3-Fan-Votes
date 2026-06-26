@@ -1,0 +1,27 @@
+{
+  "name": "wc3-fan-votes",
+  "version": "1.0.0",
+  "description": "Mini-application NoSQL de votes supporters pour la Coupe du Monde.",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "start:local": "set PORT=3001&& set MONGO_URI=mongodb://127.0.0.1:27017/wc3_fan_votes&& set REDIS_URL=redis://127.0.0.1:6380&& node src/server.js",
+    "dev": "node --watch src/server.js",
+    "seed": "node src/seed.js"
+  },
+  "keywords": [
+    "nosql",
+    "mongodb",
+    "redis",
+    "express",
+    "votes"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "mongoose": "^8.9.5",
+    "redis": "^4.7.0"
+  }
+}

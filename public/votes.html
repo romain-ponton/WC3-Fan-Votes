@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Votes - WC3 Fan Votes</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body data-page="votes">
+    <header class="topbar">
+      <a class="brand" href="/"><span class="brand-mark"></span><span>WC3 Fan Votes</span></a>
+      <nav class="nav">
+        <a href="/">Accueil</a>
+        <a class="active" href="/votes.html">Votes</a>
+        <a href="/trends.html">Tendances</a>
+        <a href="/data.html">Donnees</a>
+      </nav>
+    </header>
+
+    <main class="page-grid">
+      <section class="panel poll-panel">
+        <div class="panel-head">
+          <div>
+            <span class="eyebrow">MongoDB</span>
+            <h1>Votes ouverts</h1>
+          </div>
+          <button id="seed-button" type="button">Reset seed</button>
+        </div>
+        <div id="poll-list" class="poll-list"></div>
+      </section>
+
+      <section class="panel vote-panel">
+        <div class="match-strip">
+          <div>
+            <span id="competition" class="eyebrow">Competition</span>
+            <h2 id="match-title">Selectionne un vote</h2>
+          </div>
+          <span id="poll-status" class="status-pill">open</span>
+        </div>
+        <p id="poll-question" class="question">Les choix disponibles apparaitront ici.</p>
+        <div id="choices" class="choices"></div>
+
+        <form id="vote-form" class="inline-form">
+          <label for="user-id">Supporter</label>
+          <div class="form-row">
+            <input id="user-id" name="userId" value="user_demo" autocomplete="off">
+            <button type="submit">Voter</button>
+          </div>
+          <p id="form-message" role="status"></p>
+        </form>
+
+        <form id="option-form" class="inline-form">
+          <label for="option-label">Ajouter une equipe ou un joueur</label>
+          <div class="form-row option-row">
+            <input id="option-label" name="label" placeholder="Belgique" autocomplete="off">
+            <input id="option-team" name="team" placeholder="Europe / pays" autocomplete="off">
+            <button type="submit">Ajouter</button>
+          </div>
+          <p id="option-message" role="status"></p>
+        </form>
+      </section>
+
+      <section class="panel ranking-panel">
+        <div class="panel-head">
+          <div>
+            <span class="eyebrow">Redis sorted set</span>
+            <h2>Classement du vote</h2>
+          </div>
+        </div>
+        <div id="ranking" class="ranking"></div>
+      </section>
+
+      <section class="panel history-panel">
+        <div class="panel-head">
+          <div>
+            <span class="eyebrow">MongoDB history</span>
+            <h2>Derniers votes</h2>
+          </div>
+        </div>
+        <div id="history" class="history"></div>
+      </section>
+    </main>
+
+    <script src="/app.js"></script>
+  </body>
+</html>

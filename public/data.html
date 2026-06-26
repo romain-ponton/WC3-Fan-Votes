@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Donnees - WC3 Fan Votes</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body data-page="data">
+    <header class="topbar">
+      <a class="brand" href="/"><span class="brand-mark"></span><span>WC3 Fan Votes</span></a>
+      <nav class="nav">
+        <a href="/">Accueil</a>
+        <a href="/votes.html">Votes</a>
+        <a href="/trends.html">Tendances</a>
+        <a class="active" href="/data.html">Donnees</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="page-title">
+        <p class="eyebrow">Architecture NoSQL</p>
+        <h1>Ou consulter les donnees et comment elles bougent.</h1>
+      </section>
+
+      <section class="data-grid">
+        <article class="panel">
+          <h2>MongoDB</h2>
+          <p>Stocke les votes, les choix et l'historique horodate.</p>
+          <a class="primary-link small" href="http://localhost:8082" target="_blank" rel="noreferrer">Ouvrir Mongo Express</a>
+          <code>db: wc3_fan_votes</code>
+          <code>collections: polls, votehistories</code>
+        </article>
+        <article class="panel">
+          <h2>Redis</h2>
+          <p>Stocke les compteurs rapides et classements live.</p>
+          <a class="primary-link small" href="http://localhost:8083" target="_blank" rel="noreferrer">Ouvrir Redis Commander</a>
+          <code>poll:vote_002:ranking</code>
+          <code>team:popularity:ranking</code>
+        </article>
+        <article class="panel">
+          <h2>API</h2>
+          <p>Expose les donnees a l'interface web et a l'application mobile Expo.</p>
+          <code>GET /api/polls</code>
+          <code>GET /api/dashboard</code>
+          <code>POST /api/polls/:id/vote</code>
+        </article>
+      </section>
+
+      <pre id="health-json" class="json-box">Chargement...</pre>
+    </main>
+
+    <script src="/app.js"></script>
+  </body>
+</html>

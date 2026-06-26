@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>WC3 Fan Votes - Live Analytics</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body data-page="home">
+    <header class="topbar">
+      <a class="brand" href="/">
+        <span class="brand-mark"></span>
+        <span>WC3 Fan Votes</span>
+      </a>
+      <nav class="nav">
+        <a class="active" href="/">Accueil</a>
+        <a href="/votes.html">Votes</a>
+        <a href="/trends.html">Tendances</a>
+        <a href="/data.html">Donnees</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Live sports analytics</p>
+          <h1>Votes supporters, scores Redis et tendances en temps reel.</h1>
+          <p class="hero-text">Une mini-application NoSQL pour suivre les votes Coupe du Monde, comparer les choix et observer les equipes, joueurs et matchs qui montent.</p>
+          <div class="hero-actions">
+            <a class="primary-link" href="/votes.html">Lancer un vote</a>
+            <a class="ghost-link" href="/trends.html">Voir Redis live</a>
+          </div>
+        </div>
+
+        <section class="match-stage" aria-label="Resume live">
+          <div class="stage-head">
+            <span>Live dashboard</span>
+            <strong id="storage-mode">Connexion...</strong>
+          </div>
+          <div class="scoreline">
+            <div>
+              <span>FRA</span>
+              <strong>France</strong>
+            </div>
+            <p>1 - 0</p>
+            <div>
+              <span>JPN</span>
+              <strong>Japon</strong>
+            </div>
+          </div>
+          <div id="hero-trends" class="mini-metrics"></div>
+        </section>
+      </section>
+
+      <section class="analytics-row">
+        <article class="metric-card">
+          <span>Votes ouverts</span>
+          <strong id="open-polls-count">0</strong>
+          <p>Questions actives alimentees par MongoDB.</p>
+        </article>
+        <article class="metric-card">
+          <span>Classements Redis</span>
+          <strong>4</strong>
+          <p>Vote actif, equipes, joueurs et activite matchs.</p>
+        </article>
+        <article class="metric-card accent-card">
+          <span>Historique</span>
+          <strong>MongoDB</strong>
+          <p>Chaque vote est conserve avec son horodatage.</p>
+        </article>
+      </section>
+    </main>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
